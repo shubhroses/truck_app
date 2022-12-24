@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var ratePerMileLabel: UILabel!
     @IBOutlet weak var fixedCostTextEntry: UITextField!
     @IBOutlet weak var costOfFuelTextEntry: UITextField!
-    @IBOutlet weak var loadPriceTextEntry: UITextField!
     @IBOutlet weak var driverCostLabel: UILabel!
     
     override func viewDidLoad() {
@@ -64,9 +63,10 @@ class ViewController: UIViewController {
             }
         }
         
-        if let fixedCostText = fixedCostTextEntry.text, let loadPriceText = loadPriceTextEntry.text{
-            if let fixedCost = Int(fixedCostText), let loadPrice = Int(loadPriceText){
-                let profit = loadPrice - fixedCost - fuelCost - driverCost
+        if let fixedCostText = fixedCostTextEntry.text,
+            let totalPayText = totalPayTextEntry.text{
+            if let fixedCost = Int(fixedCostText), let totalPay = Int(totalPayText){
+                let profit = totalPay - fixedCost - fuelCost - driverCost
                 netProfitLabel.text = "$\(profit)"
             }
         }
@@ -80,6 +80,7 @@ class ViewController: UIViewController {
                 
             }
         }
+
     }
     
 }
